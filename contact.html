@@ -63,9 +63,14 @@
 
 <header class="masthead">
   <div class="wrap mast-inner">
-    <a href="index.html" class="logo">Tony Groison<span class="sub">Connecteur stratégique</span></a>
-    <nav class="mast-nav">
-      <a href="index.html">Accueil</a>
+    <a href="index.html" class="logo">
+      <img src="logo.svg" alt="" class="logo-mark" width="46" height="46">
+      <span class="logo-text">Tony Groison<span class="sub">Connecteur stratégique</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mast-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="mast-nav" id="mast-nav">
       <a href="methode.html">La méthode</a>
       <a href="domaines.html">Domaines</a>
       <a href="contact.html" class="active">Demander un contact</a>
@@ -75,7 +80,6 @@
 
 <section class="phero">
   <div class="wrap narrow">
-    <div class="kicker">Demander un contact</div>
     <h1>Exposez <em>votre besoin.</em></h1>
     <p class="lede">Trois étapes, deux minutes. Je l'étudie sous 24 h et vous rappelle si je peux vous mettre en relation.</p>
   </div>
@@ -152,6 +156,7 @@
   </div>
 </footer>
 
+<script src="app.js"></script>
 <script>
 /* ---- données ---- */
 const LABELS = {croissance:"Croissance", backoffice:"Back-office & sécurisation", patrimoine:"Patrimoine & mobilité", special:"Demande spéciale"};

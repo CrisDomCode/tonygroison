@@ -11,9 +11,14 @@
 
 <header class="masthead">
   <div class="wrap mast-inner">
-    <a href="index.html" class="logo">Tony Groison<span class="sub">Connecteur stratégique</span></a>
-    <nav class="mast-nav">
-      <a href="index.html" class="active">Accueil</a>
+    <a href="index.html" class="logo">
+      <img src="logo.svg" alt="" class="logo-mark" width="46" height="46">
+      <span class="logo-text">Tony Groison<span class="sub">Connecteur stratégique</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mast-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="mast-nav" id="mast-nav">
       <a href="methode.html">La méthode</a>
       <a href="domaines.html">Domaines</a>
       <a href="contact.html">Demander un contact</a>
@@ -24,7 +29,6 @@
 <!-- HERO -->
 <section class="phero">
   <div class="wrap stagger">
-    <div class="kicker">Réseau privé · Sur sélection</div>
     <h1>Le carnet d'adresses <em>que vous n'avez pas.</em></h1>
     <p class="lede">
       <b>2000+ relations actives</b>, construites en direct et vérifiées au fil des années.
@@ -40,7 +44,6 @@
 <!-- LE PRINCIPE -->
 <section class="block">
   <div class="wrap reveal">
-    <div class="eyebrow">Le principe</div>
     <h2>Vous n'avez pas besoin de chercher. <em>Vous avez besoin de la bonne personne.</em></h2>
     <p class="sec-lede">
       Trouver le bon prestataire, le bon partenaire ou le bon expert prend des semaines — et la plupart du temps, on se trompe.
@@ -77,9 +80,9 @@
 <section class="block soft">
   <div class="wrap reveal">
     <div class="statline">
-      <div class="stat"><div class="num">2000<span>+</span></div><div class="cap">Relations actives, en direct</div></div>
-      <div class="stat"><div class="num">24<span>h</span></div><div class="cap">Pour étudier votre demande</div></div>
-      <div class="stat"><div class="num">9</div><div class="cap">Domaines d'expertise couverts</div></div>
+      <div class="stat"><div class="num" data-count="2000">0<span>+</span></div><div class="cap">Relations actives, en direct</div></div>
+      <div class="stat"><div class="num" data-count="24">0<span>h</span></div><div class="cap">Pour étudier votre demande</div></div>
+      <div class="stat"><div class="num" data-count="9">0</div><div class="cap">Domaines d'expertise couverts</div></div>
     </div>
   </div>
 </section>
@@ -87,7 +90,6 @@
 <!-- TEASER DOMAINES -->
 <section class="block">
   <div class="wrap reveal">
-    <div class="eyebrow">Le champ couvert</div>
     <h2>Un réseau, <em>presque tous les fronts.</em></h2>
     <div class="index">
       <a href="domaines.html#croissance" class="index-row" style="text-decoration:none;color:inherit">
@@ -133,9 +135,6 @@
   </div>
 </footer>
 
-<script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+<script src="app.js"></script>
 </body>
 </html>
