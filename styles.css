@@ -100,7 +100,7 @@ body::after{
 
 h1{
   font-family:var(--body);font-weight:600;
-  font-size:clamp(40px,7vw,84px);line-height:1.04;letter-spacing:-.022em;max-width:16ch;
+  font-size:clamp(40px,7vw,84px);line-height:1.22;letter-spacing:-.022em;max-width:16ch;
 }
 h1 .accent{color:var(--ox)}
 .lede{margin-top:28px;max-width:56ch;font-size:clamp(16px,1.7vw,19px);color:var(--ink-soft)}
@@ -117,18 +117,56 @@ h1 .accent{color:var(--ox)}
 /* form hero (ATF) */
 .hero-form{margin-top:36px}
 .hf-fields{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.hf-fields input{
-  flex:1;min-width:180px;
+.hf-fields .fld{flex:1;min-width:180px;margin-bottom:0}
+.form-micro{margin-top:12px;font-size:13px;color:var(--muted)}
+
+/* ---------- floating labels — système global ---------- */
+.fld{position:relative;margin-bottom:20px}
+.fld input,.fld textarea{
+  width:100%;
   background:#ffffff;color:#1a1a1a;
   border:1px solid #c4bcb0;border-radius:4px;
   font-family:var(--body);font-size:16px;
-  padding:14px 18px;min-height:52px;
+  padding:22px 18px 8px;min-height:56px;
   outline:none;
   transition:border-color .2s,box-shadow .2s;
 }
-.hf-fields input::placeholder{color:#8a8176}
-.hf-fields input:focus{border-color:var(--ox);box-shadow:0 0 0 3px rgba(194,162,102,.18)}
-.form-micro{margin-top:12px;font-size:13px;color:var(--muted)}
+.fld textarea{min-height:108px;resize:vertical;padding-top:26px}
+.fld input::placeholder,.fld textarea::placeholder{color:transparent}
+.fld input:focus,.fld textarea:focus{border-color:var(--ox);box-shadow:0 0 0 3px rgba(194,162,102,.18)}
+/* label en overlay qui flotte */
+.fld label{
+  position:absolute;top:50%;left:18px;
+  transform:translateY(-50%);
+  font-family:var(--body);font-size:16px;color:#8a8176;
+  pointer-events:none;
+  transition:top .15s ease,font-size .15s ease,transform .15s ease,color .15s ease;
+  white-space:nowrap;
+}
+.fld textarea ~ label{top:20px;transform:none}
+/* label monte au focus ou quand le champ a une valeur */
+.fld input:focus ~ label,
+.fld input:not(:placeholder-shown) ~ label{
+  top:9px;transform:translateY(0);
+  font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+}
+.fld input:focus ~ label{color:var(--ox)}
+.fld textarea:focus ~ label,
+.fld textarea:not(:placeholder-shown) ~ label{
+  top:9px;transform:none;
+  font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+}
+.fld textarea:focus ~ label{color:var(--ox)}
+/* validation inline */
+.fld.v-valid input,.fld.v-valid textarea{border-color:#4b9e6b}
+.fld.v-valid label{color:#4b9e6b}
+.fld.v-error input,.fld.v-error textarea{border-color:var(--cta)}
+.fld.v-error label{color:var(--cta)}
+.fld-hint{
+  display:none;font-size:12px;margin-top:5px;padding:0 2px;line-height:1.4;
+}
+.fld.v-error .fld-hint{display:block;color:var(--cta)}
+.fld.v-valid .fld-hint{display:block;color:#4b9e6b}
 
 /* ---------- boutons ---------- */
 .btn{
@@ -164,6 +202,11 @@ h1 .accent{color:var(--ox)}
 .btn-cta:hover{background:var(--cta-deep);background-image:none;border-color:var(--cta-deep);transform:translateY(-2px);box-shadow:0 12px 32px -14px var(--cta)}
 .btn-cta::after{content:"\2192";display:inline-block;margin-left:.6em;transition:transform .22s}
 .btn-cta:hover::after{transform:translateX(4px)}
+/* état chargement */
+.btn-cta:disabled,.btn-cta[data-loading]{
+  opacity:.7;cursor:not-allowed;transform:none!important;box-shadow:none!important;
+  background-image:none;
+}
 
 /* lien secondaire */
 .text-link{color:var(--ox);text-decoration:none;font-size:14px;letter-spacing:.04em}
@@ -176,7 +219,7 @@ section{position:relative;z-index:2}
 
 h2{
   font-family:var(--body);font-weight:600;
-  font-size:clamp(28px,4.4vw,50px);line-height:1.1;letter-spacing:-.018em;max-width:22ch;
+  font-size:clamp(28px,4.4vw,50px);line-height:1.22;letter-spacing:-.018em;max-width:22ch;
 }
 h2 .accent{color:var(--ox)}
 .sec-lede{margin-top:22px;max-width:58ch;color:var(--ink-soft);font-size:17px}
@@ -284,11 +327,31 @@ a.index-row:hover::after{opacity:1;transform:translate(0,-50%)}
 .ps-link{color:var(--ox);text-decoration:none;font-weight:600}
 .ps-link:hover{text-decoration:underline;text-underline-offset:3px}
 
-/* ---------- footer ---------- */
-.foot{border-top:1px solid var(--rule);padding:40px 0;font-size:13px;color:var(--muted)}
-.foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
-.foot a{color:var(--ink-soft);text-decoration:none}
-.foot a:hover{color:var(--ox)}
+/* ---------- footer complet site web ---------- */
+.foot{border-top:1px solid var(--rule);padding-top:56px;font-size:13px;color:var(--muted)}
+.foot-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;
+  padding-bottom:48px;border-bottom:1px solid var(--rule-soft);
+}
+.foot-brand-name{
+  font-family:var(--body);font-weight:600;font-size:18px;
+  color:var(--ink);text-decoration:none;display:block;margin-bottom:10px;
+}
+.foot-brand-name:hover{color:var(--ox)}
+.foot-tagline{color:var(--muted);font-size:13px;line-height:1.65;max-width:26ch;margin-top:8px}
+.foot-head{
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ox);margin-bottom:18px;font-weight:600;
+}
+.foot-col{display:flex;flex-direction:column;gap:11px}
+.foot-col a{color:var(--ink-soft);text-decoration:none;font-size:13.5px;transition:color .2s}
+.foot-col a:hover{color:var(--ox)}
+.foot-bottom{
+  padding:24px 0;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted);
+}
+.foot-bottom a{color:var(--ink-soft);text-decoration:none}
+.foot-bottom a:hover{color:var(--ox)}
 
 /* ---------- reveal animations ---------- */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
@@ -338,6 +401,7 @@ a:focus-visible,.btn:focus-visible,.btn-cta:focus-visible{outline-offset:4px}
   .testi{border-right:none;border-bottom:1px solid var(--rule)}
   .testi:last-child{border-bottom:none}
   .hf-fields{flex-direction:column}
-  .hf-fields input{min-width:0;width:100%}
+  .hf-fields .fld{min-width:0;width:100%}
   .btn-cta{width:100%}
+  .foot-grid{grid-template-columns:1fr;gap:32px;padding-bottom:36px}
 }

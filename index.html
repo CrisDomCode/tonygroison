@@ -43,8 +43,14 @@
     <!-- Form ATF directement sous le sous-titre -->
     <form class="hero-form" action="contact.html" method="get" novalidate>
       <div class="hf-fields">
-        <input type="text" name="prenom" placeholder="Votre prénom" required autocomplete="given-name" aria-label="Votre prénom">
-        <input type="email" name="email" placeholder="Votre email" required autocomplete="email" aria-label="Votre email">
+        <div class="fld">
+          <input type="text" name="prenom" id="hf-prenom" placeholder=" " required autocomplete="given-name">
+          <label for="hf-prenom">Votre prénom</label>
+        </div>
+        <div class="fld">
+          <input type="email" name="email" id="hf-email" placeholder=" " required autocomplete="email">
+          <label for="hf-email">Votre email</label>
+        </div>
       </div>
       <button type="submit" class="btn-cta">J'expose mon besoin</button>
       <p class="form-micro">Étude gratuite sous 24 h, aucun démarchage, réponse garantie même si je ne peux pas aider</p>
@@ -236,9 +242,31 @@
 </div>
 
 <footer class="foot">
-  <div class="wrap foot-inner">
-    <div>Tony Groison, Connecteur stratégique</div>
-    <div>Réseau privé — <a href="contact.html">Demander un contact</a></div>
+  <div class="wrap foot-grid">
+    <div>
+      <a href="index.html" class="foot-brand-name">Tony Groison</a>
+      <p class="foot-tagline">Connecteur stratégique, réseau privé de 2 317 relations actives construites depuis 2019.</p>
+    </div>
+    <nav aria-label="Navigation secondaire">
+      <p class="foot-head">Navigation</p>
+      <div class="foot-col">
+        <a href="methode.html">La méthode</a>
+        <a href="domaines.html">Domaines</a>
+        <a href="contact.html">Demander un contact</a>
+      </div>
+    </nav>
+    <div>
+      <p class="foot-head">Légal</p>
+      <div class="foot-col">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/confidentialite">Politique de confidentialité</a>
+        <a href="/cgv">CGV</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>© 2025 Tony Groison — Tous droits réservés</p>
+    <a href="contact.html">Demander un contact</a>
   </div>
 </footer>
 
