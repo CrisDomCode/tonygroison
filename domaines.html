@@ -4,16 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Domaines couverts — Tony Groison</title>
-<meta name="description" content="Croissance, back-office, patrimoine, demandes spéciales : neuf domaines couverts par un seul réseau privé.">
+<meta name="description" content="Gagner, déléguer, sécuriser, faire fructifier : quatre axes couverts par un seul réseau privé de connecteur stratégique.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tonygroison.com/domaines.html">
+<meta property="og:title" content="Domaines couverts — Tony Groison Deal Maker">
+<meta property="og:description" content="Gagner, déléguer, sécuriser, faire fructifier : quatre axes couverts par un seul réseau privé de 2 300+ relations actives.">
+<meta property="og:image" content="https://tonygroison.com/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tonygroison.com/og.jpg">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* ── Navigation cards ── */
+.dom-intro { padding-top: 120px; padding-bottom: 0; background: var(--ink); }
+.dom-cards {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.dom-card {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 32px 24px 28px;
+  text-decoration: none; color: #fff;
+  border-right: 1px solid rgba(255,255,255,.1);
+  transition: background .2s;
+  position: relative;
+}
+.dom-card:last-child { border-right: none; }
+.dom-card::after {
+  content: ""; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--ox);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.dom-card:hover { background: rgba(255,255,255,.06); }
+.dom-card:hover::after { transform: scaleX(1); }
+.dom-card:hover .dc-title { color: var(--ox); }
+.dc-num { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: rgba(255,255,255,.35); }
+.dc-ico { width: 28px; height: 28px; }
+.dc-title { font-weight: 700; font-size: 17px; transition: color .2s; }
+.dc-sub { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+/* ── Sections avec offset navbar ── */
+.dom-section { scroll-margin-top: 0; }
+
+/* ── Responsive cards ── */
+@media (max-width: 820px) {
+  .dom-cards { grid-template-columns: repeat(2, 1fr); }
+  .dom-card { border-bottom: 1px solid rgba(255,255,255,.1); }
+  .dom-card:nth-child(2n) { border-right: none; }
+  .dom-card:last-child { grid-column: span 2; border-right: none; }
+}
+@media (max-width: 480px) {
+  .dom-cards { grid-template-columns: 1fr; }
+  .dom-card { border-right: none; }
+  .dom-card:last-child { grid-column: span 1; }
+}
+</style>
 </head>
 <body>
 
-<header class="masthead">
+<header class="masthead solid">
   <div class="wrap mast-inner">
     <a href="index.html" class="logo">
-      <img src="logo.svg" alt="" class="logo-mark" width="46" height="46">
-      <span class="logo-text">Tony Groison<span class="sub">Connecteur stratégique</span></span>
+      <img src="tonygroison.avif" alt="" class="logo-mark" width="46" height="46">
+      <span class="logo-text">Tony Groison<span class="sub">Deal Maker</span></span>
     </a>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mast-nav">
       <span></span><span></span><span></span>
@@ -26,88 +81,162 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="phero">
-  <div class="wrap stagger">
-    <h1>Neuf domaines. <span class="accent">Un seul réseau.</span></h1>
-    <p class="lede">
-      Là où la plupart se spécialisent sur un créneau, mon réseau couvre toute la chaîne d'un entrepreneur, de ce qui fait rentrer le chiffre à ce qui protège et fait grandir le patrimoine.
-    </p>
+<!-- CARDS NAVIGATION -->
+<section class="dom-intro">
+  <div class="wrap">
+    <div class="dom-cards">
+
+      <a href="#gagner" class="dom-card">
+        <span class="dc-num">01</span>
+        <svg class="dc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,.25)" fill="rgba(230,50,32,.2)"/>
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+        <strong class="dc-title">Gagner</strong>
+      </a>
+
+      <a href="#deleguer" class="dom-card">
+        <span class="dc-num">02</span>
+        <svg class="dc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="15" rx="8" ry="4" fill="rgba(230,50,32,.2)" stroke="rgba(255,255,255,.25)"/>
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <strong class="dc-title">Déléguer</strong>
+      </a>
+
+      <a href="#securiser" class="dom-card">
+        <span class="dc-num">03</span>
+        <svg class="dc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(230,50,32,.2)" stroke="rgba(255,255,255,.25)"/>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+        <strong class="dc-title">Sécuriser</strong>
+      </a>
+
+      <a href="#faire-fructifier" class="dom-card">
+        <span class="dc-num">04</span>
+        <svg class="dc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="10" width="4" height="10" fill="rgba(230,50,32,.2)" stroke="none"/>
+          <rect x="10" y="4" width="4" height="16" fill="rgba(230,50,32,.35)" stroke="none"/>
+          <rect x="17" y="13" width="4" height="7" fill="rgba(230,50,32,.2)" stroke="none"/>
+          <line x1="18" y1="20" x2="18" y2="10"/>
+          <line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+        <strong class="dc-title">Faire fructifier</strong>
+      </a>
+
+      <a href="#special" class="dom-card">
+        <span class="dc-num">05</span>
+        <svg class="dc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="rgba(230,50,32,.2)" stroke="rgba(255,255,255,.25)"/>
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <strong class="dc-title">Demande spéciale</strong>
+      </a>
+
+    </div>
   </div>
 </section>
 
-<!-- 01 CROISSANCE -->
-<section class="block" id="croissance">
+<!-- 01 GAGNER -->
+<section class="block dom-section" id="gagner">
   <div class="wrap reveal">
-    <h2>Croissance — <span class="accent">ce qui fait rentrer du chiffre.</span></h2>
+    <h2>Gagner : ce qui rentre dans la caisse</h2>
     <div class="index">
       <div class="index-row">
         <div class="index-num">a.</div>
-        <div class="index-body"><h3>Trafic</h3><p>Acquisition payante et organique : Meta, Google, SEO, influence. Les bons profils pour remplir le haut de l'entonnoir.</p></div>
+        <div class="index-body"><h3>Trafic</h3><p>Acquisition payante et organique, Meta, Google, SEO et influence : je vous mets en contact avec les bons profils pour remplir le haut de l'entonnoir.</p></div>
       </div>
       <div class="index-row">
         <div class="index-num">b.</div>
-        <div class="index-body"><h3>Conversion &amp; ventes</h3><p>Closers, setters, copywriters, tunnels. Tout ce qui transforme l'attention en chiffre d'affaires.</p></div>
+        <div class="index-body"><h3>Conversion</h3><p>Tunnels, landing pages et copywriting : les profils qui transforment l'attention en décision d'achat.</p></div>
+      </div>
+      <div class="index-row">
+        <div class="index-num">c.</div>
+        <div class="index-body"><h3>Ventes</h3><p>Offres, pricing et processus commercial : les experts qui optimisent ce que vous vendez et comment vous le positionnez.</p></div>
+      </div>
+      <div class="index-row">
+        <div class="index-num">d.</div>
+        <div class="index-body"><h3>Setter &amp; Closer</h3><p>Qualification des leads et transformation en clients : des profils qui savent alimenter le pipe et fermer sans brûler la relation.</p></div>
+      </div>
+    </div>
+    <div class="inline-cta">
+      <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
+      <span class="cta-micro">Étude gratuite sous 24 h</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 DÉLÉGUER -->
+<section class="block soft dom-section" id="deleguer">
+  <div class="wrap reveal">
+    <h2>Déléguer : ce qui libère votre bande passante</h2>
+    <div class="index">
+      <div class="index-row">
+        <div class="index-num">a.</div>
+        <div class="index-body"><h3>Assistance virtuelle</h3><p>Gestion des tâches répétitives, coordination et support opérationnel : libérez votre bande passante pour ce qui compte.</p></div>
+      </div>
+      <div class="index-row">
+        <div class="index-num">b.</div>
+        <div class="index-body"><h3>Recrutement</h3><p>Trouver le bon profil prend trop de temps. Je le fais à votre place, pour n'importe quel poste.</p></div>
       </div>
       <div class="index-row">
         <div class="index-num">c.</div>
         <div class="index-body"><h3>Automatisations IA</h3><p>Mise en place d'outils et d'agents qui font tourner l'opérationnel pendant que vous vendez.</p></div>
       </div>
+      <div class="index-row">
+        <div class="index-num">d.</div>
+        <div class="index-body"><h3>Développement</h3><p>Développeurs très solides pour concevoir, faire évoluer ou sauver un projet technique, peu importe le stack.</p></div>
+      </div>
     </div>
-
-    <!-- CTA 1 -->
-    <div class="inline-cta">
-      <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
-      <span class="cta-micro">Étude gratuite sous 24 h</span>
-    </div>
-
   </div>
 </section>
 
-<!-- 02 BACK-OFFICE -->
-<section class="block soft" id="backoffice">
+<!-- 03 SÉCURISER -->
+<section class="block dom-section" id="securiser">
   <div class="wrap reveal">
-    <h2>Back-office — <span class="accent">ce qui protège</span> ce que vous construisez.</h2>
+    <h2>Sécuriser : ce qui protège ce que vous construisez</h2>
     <div class="index">
       <div class="index-row">
         <div class="index-num">a.</div>
-        <div class="index-body"><h3>Administratif &amp; gestion</h3><p>Comptabilité, structuration, gestion courante. Les bons interlocuteurs pour ne plus y penser.</p></div>
+        <div class="index-body"><h3>Juridique</h3><p>Contrats, litiges et conformité : des avocats et conseils qui répondent vite et juste.</p></div>
       </div>
       <div class="index-row">
         <div class="index-num">b.</div>
-        <div class="index-body"><h3>Juridique</h3><p>Contrats, litiges, conformité. Des avocats et conseils qui répondent vite et juste.</p></div>
-      </div>
-      <div class="index-row">
-        <div class="index-num">c.</div>
-        <div class="index-body"><h3>Recouvrement</h3><p>Factures impayées, créances bloquées. Les professionnels qui débloquent ce qui vous est dû.</p></div>
+        <div class="index-body"><h3>Recouvrement</h3><p>Factures impayées et créances bloquées : les professionnels qui débloquent ce qui vous est dû.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 03 PATRIMOINE -->
-<section class="block" id="patrimoine">
+<!-- 04 FAIRE FRUCTIFIER -->
+<section class="block soft dom-section" id="faire-fructifier">
   <div class="wrap reveal">
-    <h2>Patrimoine — <span class="accent">ce qui fait bouger</span> votre situation.</h2>
+    <h2>Faire fructifier : ce qui fait augmenter votre patrimoine</h2>
     <div class="index">
       <div class="index-row">
         <div class="index-num">a.</div>
-        <div class="index-body"><h3>Expatriation</h3><p>Changement de résidence, structuration internationale, fiscalité. Les bons conseils pour partir sans se tromper.</p></div>
+        <div class="index-body"><h3>Investissement</h3><p>Placement, immobilier et opportunités : des interlocuteurs sérieux qui travaillent dans votre intérêt.</p></div>
       </div>
       <div class="index-row">
         <div class="index-num">b.</div>
-        <div class="index-body"><h3>Investissement</h3><p>Placement, immobilier, opportunités. Des interlocuteurs sérieux, pas des vendeurs de rêve.</p></div>
+        <div class="index-body"><h3>Expatriation</h3><p>Changement de résidence, structuration internationale et fiscalité : les bons conseils pour partir sans se tromper.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 04 SPÉCIAL -->
-<section class="block soft" id="special">
-  <div class="wrap narrow reveal">
-    <h2>Demande spéciale — <span class="accent">hors des cases.</span></h2>
+<!-- 05 DEMANDE SPÉCIALE -->
+<section class="block dom-section" id="special">
+  <div class="wrap reveal">
+    <h2>Demande spéciale, hors des cases</h2>
     <p class="sec-lede">
-      Un besoin précis qui ne rentre dans aucune catégorie ? C'est souvent là que mon réseau fait la vraie différence. Posez la question : si je connais la bonne personne, je vous le dis tout de suite. Si je ne l'ai pas, je vous le dis aussi.
+      Un besoin précis qui ne rentre dans aucune catégorie ? C'est souvent là que mon réseau fait la vraie différence, pour tous types de besoins. Posez la question : si je connais la bonne personne, je vous le dis tout de suite. Si je ne l'ai pas, je vous le dis aussi. Confidentialité garantie.
     </p>
   </div>
 </section>
@@ -115,26 +244,17 @@
 <!-- CTA CENTRAL -->
 <section class="cta">
   <div class="wrap reveal">
-    <!-- CTA 2 -->
-    <h2>Votre besoin est quelque part là-dedans ? <span class="accent">Dites-le-moi.</span></h2>
+    <h2>Votre besoin est quelque part là-dedans ? Dites-le-moi</h2>
     <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
     <span class="cta-under">Étude gratuite sous 24 h, aucun engagement</span>
   </div>
 </section>
 
-<!-- PS -->
-<div class="ps-block">
-  <div class="wrap narrow reveal">
-    <!-- CTA 3 -->
-    <p class="ps-final">P.S. Si votre besoin ne rentre dans aucune case, exposez-le quand même. Les demandes hors cases sont souvent celles où mon réseau fait la vraie différence. <a href="contact.html" class="ps-link">J'expose mon besoin →</a></p>
-  </div>
-</div>
-
 <footer class="foot">
   <div class="wrap foot-grid">
     <div>
       <a href="index.html" class="foot-brand-name">Tony Groison</a>
-      <p class="foot-tagline">Connecteur stratégique, réseau privé de 2 317 relations actives construites depuis 2019.</p>
+      <p class="foot-tagline">Connecteur stratégique, réseau privé de 2 300+ relations actives construites depuis 2019.</p>
     </div>
     <nav aria-label="Navigation secondaire">
       <p class="foot-head">Navigation</p>
@@ -147,18 +267,47 @@
     <div>
       <p class="foot-head">Légal</p>
       <div class="foot-col">
-        <a href="/mentions-legales">Mentions légales</a>
-        <a href="/confidentialite">Politique de confidentialité</a>
-        <a href="/cgv">CGV</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
       </div>
     </div>
   </div>
   <div class="wrap foot-bottom">
-    <p>© 2025 Tony Groison — Tous droits réservés</p>
+    <p>© <span id="copy-year"></span> Tony Groison. Tous droits réservés.<script>document.getElementById('copy-year').textContent=new Date().getFullYear();</script></p>
+    <a href="https://kaptos.co" target="_blank" rel="noopener noreferrer">Créé par Kaptos.co</a>
     <a href="contact.html">Demander un contact</a>
   </div>
 </footer>
 
 <script src="app.js"></script>
+<script>
+  // Smooth scroll avec offset navbar
+  document.querySelectorAll('.dom-card').forEach(card => {
+    card.addEventListener('click', e => {
+      const target = document.querySelector(card.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const navH = document.querySelector('.masthead').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Card active au scroll
+  const sections = document.querySelectorAll('.dom-section');
+  const cards = document.querySelectorAll('.dom-card');
+  const navH = () => document.querySelector('.masthead').offsetHeight;
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - navH() - 32) current = '#' + s.id;
+    });
+    cards.forEach(c => {
+      c.classList.toggle('active', c.getAttribute('href') === current);
+    });
+  }, { passive: true });
+</script>
+
 </body>
 </html>

@@ -55,4 +55,15 @@
       nums.forEach(el => cio.observe(el));
     }
   }
+
+  /* Façade vidéos témoignages */
+  document.querySelectorAll('.vid-facade').forEach(function(facade) {
+    var btn = facade.querySelector('.vid-play');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var src = facade.dataset.src;
+      facade.innerHTML = '<video src="' + src + '" autoplay controls playsinline style="width:100%;height:100%;object-fit:cover;display:block"></video>';
+    });
+  });
+
 })();

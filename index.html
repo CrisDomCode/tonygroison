@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tony Groison — Connecteur stratégique, réseau privé</title>
+<title>Tony Groison, dealmaker et réseau privé</title>
 <meta name="description" content="Un carnet d'adresses privé de 2 000+ relations actives. Quel que soit votre blocage, je connais la bonne personne. Sur sélection.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tonygroison.com/">
+<meta property="og:title" content="Tony Groison — Deal Maker, réseau privé">
+<meta property="og:description" content="Un carnet d'adresses privé de 2 300+ relations actives. Quel que soit votre blocage, je connais la bonne personne. Étude gratuite sous 24 h.">
+<meta property="og:image" content="https://tonygroison.com/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tony Groison — Deal Maker, réseau privé">
+<meta name="twitter:description" content="Un carnet d'adresses privé de 2 300+ relations actives. Quel que soit votre blocage, je connais la bonne personne. Étude gratuite sous 24 h.">
+<meta name="twitter:image" content="https://tonygroison.com/og.jpg">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,8 +23,8 @@
 <header class="masthead">
   <div class="wrap mast-inner">
     <a href="index.html" class="logo">
-      <img src="logo.svg" alt="" class="logo-mark" width="46" height="46">
-      <span class="logo-text">Tony Groison<span class="sub">Connecteur stratégique</span></span>
+      <img src="tonygroison.avif" alt="" class="logo-mark" width="46" height="46">
+      <span class="logo-text">Tony Groison<span class="sub">Deal Maker</span></span>
     </a>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mast-nav">
       <span></span><span></span><span></span>
@@ -30,74 +41,85 @@
 <section class="phero">
   <div class="wrap stagger">
 
-    <!-- Preuve sociale chiffrée dans le hero -->
-    <p class="hero-proof">2 317 mises en relation depuis 2019</p>
+    <h1>Décrivez-moi votre besoin, je&nbsp;vous trouve la bonne personne</h1>
 
-    <h1>Le carnet d'adresses <span class="accent">que vous n'avez pas.</span></h1>
+    <form class="hero-inline-form" id="main-form" novalidate>
 
-    <p class="lede">
-      <b>2 000 relations actives</b>, construites en direct et vérifiées depuis 2019.
-      Quel que soit votre blocage, croissance, gestion ou patrimoine, je connais la personne qui le règle, et je vous mets en relation sans intermédiaire.
-    </p>
-
-    <!-- Form ATF directement sous le sous-titre -->
-    <form class="hero-form" action="contact.html" method="get" novalidate>
-      <div class="hf-fields">
-        <div class="fld">
-          <input type="text" name="prenom" id="hf-prenom" placeholder=" " required autocomplete="given-name">
-          <label for="hf-prenom">Votre prénom</label>
+      <!-- ÉTAPE 1 -->
+      <div id="hif-s1">
+        <p class="picker-label">Que voulez-vous ?</p>
+        <div class="hif-wrap">
+          <input type="text" name="besoin" id="hif-besoin" placeholder="Je veux..." class="hif-input" autocomplete="off">
+          <button type="button" class="hif-btn" id="hif-next">Obtenir
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
-        <div class="fld">
-          <input type="email" name="email" id="hf-email" placeholder=" " required autocomplete="email">
-          <label for="hf-email">Votre email</label>
-        </div>
+        <p class="form-micro">2 000+ relations actives, construites en direct et vérifiées depuis 2019<br>Étude gratuite, réponse garantie même si je ne peux pas aider</p>
       </div>
-      <button type="submit" class="btn-cta">J'expose mon besoin</button>
-      <p class="form-micro">Étude gratuite sous 24 h, aucun démarchage, réponse garantie même si je ne peux pas aider</p>
+
+      <!-- ÉTAPE 2 -->
+      <div id="hif-s2" hidden>
+        <p class="picker-label">Vos coordonnées</p>
+        <div class="hif-s2-fields">
+          <div class="fld" id="fld-name">
+            <input type="text" name="fullname" id="hif-name" placeholder=" " autocomplete="name">
+            <label for="hif-name">Prénom Nom</label>
+            <span class="fld-hint">Entrez votre prénom et votre nom (séparés par un espace)</span>
+          </div>
+          <div class="fld" id="fld-company">
+            <input type="text" name="company" id="hif-company" placeholder=" " autocomplete="organization">
+            <label for="hif-company">Société / Site web</label>
+          </div>
+          <div class="fld" id="fld-tel">
+            <input type="tel" name="tel" id="hif-tel" placeholder=" " autocomplete="tel" inputmode="tel">
+            <label for="hif-tel">Téléphone</label>
+            <span class="fld-hint">Format non reconnu</span>
+          </div>
+        </div>
+        <button type="submit" class="btn-cta" id="hif-submit">J'expose mon besoin</button>
+        <p class="form-micro" style="margin-top:18px">Confidentialité garantie &nbsp;·&nbsp; Réponse sous 24 h</p>
+      </div>
+
+      <!-- SUCCÈS -->
+      <div id="hif-ok" class="hif-ok-msg" hidden>
+        <p class="picker-label">Demande reçue</p>
+        <p class="form-micro">Je reviens vers vous sous 24 heures.</p>
+      </div>
+
     </form>
 
   </div>
-</section>
 
-<!-- LE PRINCIPE -->
-<section class="block">
-  <div class="wrap reveal">
-    <h2>Vous n'avez pas besoin de chercher. <span class="accent">Vous avez besoin de la bonne personne.</span></h2>
-    <p class="sec-lede">
-      Trouver le bon prestataire, le bon partenaire ou le bon expert prend des semaines, et la plupart du temps on se trompe.
-      Mon métier supprime cette étape : un seul interlocuteur, un réseau déjà filtré, une mise en relation directe avec quelqu'un qui a déjà fait ses preuves.
-    </p>
-
-    <div class="index">
-      <div class="index-row">
-        <div class="index-num">i.</div>
-        <div class="index-body">
-          <h3>Vous exposez le besoin</h3>
-          <p>Un échange court. Vous décrivez le blocage, je qualifie précisément ce qu'il vous faut.</p>
-        </div>
-      </div>
-      <div class="index-row">
-        <div class="index-num">ii.</div>
-        <div class="index-body">
-          <h3>J'ouvre le carnet</h3>
-          <p>Je sélectionne dans mon réseau la personne taillée pour votre cas. Pas une liste de devis, un nom.</p>
-        </div>
-      </div>
-      <div class="index-row">
-        <div class="index-num">iii.</div>
-        <div class="index-body">
-          <h3>Je fais le lien</h3>
-          <p>Je vous présente, je facilite la mise en route, puis vous traitez en direct. Je reste garant de la connexion.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA 2 -->
-    <div class="inline-cta">
-      <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
-      <span class="cta-micro">Étude gratuite sous 24 h</span>
-    </div>
-
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Media Buyer Meta Ads</span><span class="dot">✦</span>
+    <span>Copywriter</span><span class="dot">✦</span>
+    <span>Closer</span><span class="dot">✦</span>
+    <span>Expert fiscalité</span><span class="dot">✦</span>
+    <span>Assistante virtuelle</span><span class="dot">✦</span>
+    <span>Avocat d'affaires</span><span class="dot">✦</span>
+    <span>Expert-comptable</span><span class="dot">✦</span>
+    <span>Automatisations IA</span><span class="dot">✦</span>
+    <span>Expert recouvrement</span><span class="dot">✦</span>
+    <span>Consultant SEO</span><span class="dot">✦</span>
+    <span>Gestionnaire de patrimoine</span><span class="dot">✦</span>
+    <span>Setter</span><span class="dot">✦</span>
+    <span>Demande spéciale</span><span class="dot">✦</span>
+    <span>Media Buyer Meta Ads</span><span class="dot">✦</span>
+    <span>Copywriter</span><span class="dot">✦</span>
+    <span>Closer</span><span class="dot">✦</span>
+    <span>Expert fiscalité</span><span class="dot">✦</span>
+    <span>Assistante virtuelle</span><span class="dot">✦</span>
+    <span>Avocat d'affaires</span><span class="dot">✦</span>
+    <span>Expert-comptable</span><span class="dot">✦</span>
+    <span>Automatisations IA</span><span class="dot">✦</span>
+    <span>Expert recouvrement</span><span class="dot">✦</span>
+    <span>Consultant SEO</span><span class="dot">✦</span>
+    <span>Gestionnaire de patrimoine</span><span class="dot">✦</span>
+    <span>Setter</span><span class="dot">✦</span>
+    <span>Demande spéciale</span><span class="dot">✦</span>
+  </div>
   </div>
 </section>
 
@@ -105,73 +127,211 @@
 <section class="block soft">
   <div class="wrap reveal">
     <div class="statline">
-      <div class="stat"><div class="num" data-count="2317">0</div><div class="cap">Mises en relation depuis 2019</div></div>
-      <div class="stat"><div class="num" data-count="24">0<span>h</span></div><div class="cap">Pour étudier votre demande</div></div>
-      <div class="stat"><div class="num" data-count="9">0</div><div class="cap">Domaines d'expertise couverts</div></div>
+      <div class="stat"><div class="num">2 300+</div><div class="cap">Mises en relation depuis 2019</div></div>
+      <div class="stat"><div class="num">20 M€</div><div class="cap">de valeur générée pour mes clients</div></div>
+      <div class="stat"><div class="num num-xl">∞</div><div class="cap">Domaines d'expertise couverts</div></div>
     </div>
   </div>
 </section>
 
-<!-- TÉMOIGNAGES -->
-<section class="block">
+<!-- POURQUOI UN DEALMAKER -->
+<section class="block" style="padding-bottom:80px">
+  <div class="wrap narrow reveal">
+    <h2>Pourquoi faire affaire à un Dealmaker&nbsp;?</h2>
+<p class="sec-lede">
+  Vous savez déjà comment ça se passe quand vous cherchez seul.<br/>Vous lancez dix recherches Google, vous postez sur LinkedIn, vous demandez à deux ou trois personnes autour de vous.<br/><br/>Sauf que ces personnes vous recommandent en fait le prestataire qu'elles connaissent depuis dix ans, et ne l'ont jamais vraiment évalué.<br/><br/>Trois semaines plus tard, vous avez cinq devis impossibles à comparer, vous ne savez toujours pas qui est compétent et qui est juste bon vendeur, et votre problème de départ est toujours là.
+</p>
+<p class="sec-lede" style="margin-top:22px">
+  Ce que personne ne dit, c'est combien coûte le mauvais choix.<br/><br/>Le vrai coût n'a rien à voir avec le temps perdu à chercher.<br/>C'est les 20 000 euros de budget pub que vous avez confiés à un media buyer qui ne savait pas ce qu'il faisait.<br/>C'est les six mois de contentieux qui n'en finit pas pendant que votre avocat répond à contretemps.<br/>C'est l'expatriation lancée trop vite que vous devrez payer une deuxième fois pour la défaire.<br/><br/>Une mauvaise mise en relation, ça peut vous coûter une année entière.
+</p>
+  </div>
+</section>
+
+<!-- COMPARATIF -->
+<section class="block" style="padding-top:0">
   <div class="wrap reveal">
-    <h2>Ce que disent <span class="accent">ceux qui ont essayé.</span></h2>
-    <p class="global-note"><strong>4,8/5</strong> sur 127 avis vérifiés</p>
-
-    <div class="testi-grid">
-
-      <div class="testi">
-        <!-- Remplacer src par une photo réelle au format WebP -->
-        <img class="testi-photo" src="" alt="Marc-Antoine Lebrun" loading="lazy" width="72" height="72">
-        <p class="testi-q">"En 48 heures, Tony m'a mis en relation avec un cabinet qui a <b>récupéré 23 000 euros</b> de créances bloquées depuis 6 mois. Je n'avais pas imaginé que ça pouvait aller aussi vite."</p>
-        <p class="testi-id">Marc-Antoine Lebrun <strong>Lyon</strong></p>
+    <div class="compare-grid">
+      <div class="compare-col compare-sans">
+        <p class="compare-head">Seul</p>
+        <ul>
+          <li>Vous perdez des semaines à comparer des devis</li>
+          <li>Vous pariez sur un inconnu</li>
+          <li>Vous obtenez le plus visible, jamais le meilleur</li>
+          <li>Vous signez à l'aveugle</li>
+          <li>Votre budget, temps et énergie brûlent</li>
+          <li>Quand ça tourne mal, vous êtes seul</li>
+        </ul>
       </div>
-
-      <div class="testi">
-        <img class="testi-photo" src="" alt="Sophie Marchand" loading="lazy" width="72" height="72">
-        <p class="testi-q">"Je cherchais un closer fiable depuis 3 mois. Un appel avec Tony, <b>72 heures plus tard j'avais un profil qui tournait</b>. Il ne cherche pas à en vendre plusieurs."</p>
-        <p class="testi-id">Sophie Marchand <strong>Paris</strong></p>
+      <div class="compare-col compare-avec">
+        <p class="compare-head">Avec Tony Groison</p>
+        <ul>
+          <li>Je vous mets en relation en 24 heures</li>
+          <li>Je sélectionne personnellement</li>
+          <li>Uniquement des professionnels compétents</li>
+          <li>Vous signez sans vous inquiéter</li>
+          <li>J'ai tout intérêt à ce que ça marche</li>
+          <li>Je reste garant de A à Z</li>
+        </ul>
       </div>
-
-      <div class="testi">
-        <img class="testi-photo" src="" alt="Karim Ouali" loading="lazy" width="72" height="72">
-        <p class="testi-q">"La mise en relation avec le conseil juridique a coûté <b>moins cher que 2 heures de recherche</b>. Tony vous trouve quelqu'un qui a déjà fait ses preuves dans votre situation précise."</p>
-        <p class="testi-id">Karim Ouali <strong>Bordeaux</strong></p>
-      </div>
-
     </div>
-
-    <!-- CTA 3 -->
-    <div class="inline-cta">
-      <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
-      <span class="cta-micro">Étude gratuite sous 24 h</span>
-    </div>
-
   </div>
 </section>
 
 <!-- DOMAINES -->
 <section class="block soft">
   <div class="wrap reveal">
-    <h2>Un réseau, <span class="accent">presque tous les fronts.</span></h2>
+    <h2>Les domaines où je peux vous aider</h2>
     <div class="index">
-      <a href="domaines.html#croissance" class="index-row" style="text-decoration:none;color:inherit">
-        <div class="index-num">01</div>
-        <div class="index-body"><h3>Croissance</h3><p>Trafic, conversion &amp; ventes, automatisations IA.</p></div>
+      <a href="domaines.html#gagner" class="index-row">
+        <div class="index-num"><svg width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(230,50,32,0.15)"/><circle cx="12" cy="12" r="10" fill="none" stroke="#e63220" stroke-width="1.5" stroke-linecap="round"/><path d="M16.5 8.5C15.5 7 14 6.5 12.5 6.5C9.5 6.5 7.5 9 7.5 12s2 5.5 5 5.5c1.5 0 3-.5 4-2" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="10.5" x2="12.5" y2="10.5" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="13.5" x2="12.5" y2="13.5" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="index-body">
+          <h3>Gagner</h3>
+          <p>Trafic, media buying Meta &amp; Google, SEO, influence, conversion, copywriting, tunnel de vente, ventes, setter, closer, pôle commercial clé en main.</p>
+        </div>
       </a>
-      <a href="domaines.html#backoffice" class="index-row" style="text-decoration:none;color:inherit">
-        <div class="index-num">02</div>
-        <div class="index-body"><h3>Back-office &amp; sécurisation</h3><p>Administratif &amp; gestion, juridique, recouvrement.</p></div>
+      <a href="domaines.html#deleguer" class="index-row">
+        <div class="index-num"><svg width="32" height="32" viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="9" ry="6" fill="rgba(230,50,32,0.15)"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" fill="none" stroke="#e63220" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="index-body">
+          <h3>Déléguer</h3>
+          <p>Automatisations IA, agents IA, développeur IA en interne, IA interne, no-code, assistance virtuelle, développement web &amp; app, profils techniques, recrutement tout poste.</p>
+        </div>
       </a>
-      <a href="domaines.html#patrimoine" class="index-row" style="text-decoration:none;color:inherit">
-        <div class="index-num">03</div>
-        <div class="index-body"><h3>Patrimoine &amp; mobilité</h3><p>Expatriation, investissement.</p></div>
+      <a href="domaines.html#securiser" class="index-row">
+        <div class="index-num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(230,50,32,0.15)"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="#e63220" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 12 11 14 15 10" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="index-body">
+          <h3>Sécuriser</h3>
+          <p>Juridique, contrats, litiges, conformité, avocats d'affaires, recouvrement, créances impayées, auditeur.</p>
+        </div>
       </a>
-      <a href="domaines.html#special" class="index-row" style="text-decoration:none;color:inherit">
-        <div class="index-num">04</div>
-        <div class="index-body"><h3>Demande spéciale</h3><p>Un besoin précis, même hors des cases.</p></div>
+      <a href="domaines.html#faire-fructifier" class="index-row">
+        <div class="index-num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M2 20L12 5L22 20H2Z" fill="rgba(230,50,32,0.15)"/><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" fill="none" stroke="#e63220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 7 22 7 22 13" fill="none" stroke="#e63220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="index-body">
+          <h3>Faire fructifier</h3>
+          <p>Investissement, immobilier, placement, gestion de patrimoine, expatriation, fiscalité internationale, mobilité.</p>
+        </div>
+      </a>
+      <a href="domaines.html#special" class="index-row">
+        <div class="index-num"><svg width="32" height="32" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="rgba(230,50,32,0.15)"/><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#e63220" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="index-body">
+          <h3>Demande spéciale</h3>
+          <p>Votre besoin ne rentre dans aucune case ? Exposez-le quand même. C'est souvent là que mon réseau fait la vraie différence.</p>
+        </div>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- LE PRINCIPE -->
+<section class="block">
+  <div class="wrap reveal">
+    <h2>Je vous mets en relation</h2>
+    <p class="sec-lede">
+      Trouver le bon prestataire, le bon partenaire ou le bon expert prend des semaines, et la plupart du temps on se trompe.
+      Mon métier supprime cette étape : un seul interlocuteur, un réseau déjà filtré, une mise en relation directe avec quelqu'un qui a déjà fait ses preuves.
+    </p>
+
+    <div class="steps-vb">
+      <div class="svb-step">
+        <div class="svb-dot">1</div>
+        <div class="svb-body">
+          <h3>Vous exposez le besoin</h3>
+          <p>Vous me décrivez le blocage et je qualifie précisément ce qu'il vous faut.</p>
+        </div>
+      </div>
+      <div class="svb-step">
+        <div class="svb-dot">2</div>
+        <div class="svb-body">
+          <h3>J'ouvre mon carnet</h3>
+          <p>Je sélectionne dans mon réseau la personne idéale pour votre cas, ou plusieurs si vous le souhaitez.</p>
+        </div>
+      </div>
+      <div class="svb-step">
+        <div class="svb-dot">3</div>
+        <div class="svb-body">
+          <h3>Je fais le lien</h3>
+          <p>Je vous présente, je facilite la mise en route, puis vous travaillez en direct avec votre expert.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="inline-cta">
+      <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- GARANTIE -->
+<section class="block guarant">
+  <div class="wrap narrow reveal" style="text-align:center">
+    <h2>Je vous dis directement si j'ai la bonne personne</h2>
+    <p class="sec-lede" style="margin-left:auto;margin-right:auto">
+      Vous ne payez rien si je ne peux pas vous aider. Vous abandonnez votre demande à tout moment en un seul message. Aucun engagement, aucune relance commerciale.
+    </p>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="block">
+  <div class="wrap reveal">
+    <h2>Ils en sont ravis</h2>
+    <div class="vid-grid">
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_1.mp4">
+        <img src="assets/temoignages/temoignage_1.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_2.mp4">
+        <img src="assets/temoignages/temoignage_2.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_3.mp4">
+        <img src="assets/temoignages/temoignage_3.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_4.mp4">
+        <img src="assets/temoignages/temoignage_4.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_5.mp4">
+        <img src="assets/temoignages/temoignage_5.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_6.mp4">
+        <img src="assets/temoignages/temoignage_6.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+      <div class="vid-facade" data-src="assets/temoignages/temoignage_7.mp4">
+        <img src="assets/temoignages/temoignage_7.jpg" alt="Témoignage client" loading="lazy">
+        <button class="vid-play" aria-label="Lire le témoignage">
+          <span class="vid-play-circle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="7,4 20,12 7,20" fill="#fff"/></svg></span>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="inline-cta">
+      <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
+    </div>
+
   </div>
 </section>
 
@@ -179,17 +339,7 @@
 <section class="band">
   <div class="wrap reveal">
     <p class="q">« Je suis payé à la mise en relation, par vous ou par le prestataire, toujours <span class="accent">annoncé d'avance.</span> C'est ce qui garantit mon objectivité. »</p>
-    <p style="margin-top:28px"><a href="methode.html" class="text-link">La règle du jeu, en détail →</a></p>
-  </div>
-</section>
-
-<!-- GARANTIE -->
-<section class="block guarant">
-  <div class="wrap narrow reveal">
-    <h2>Pas la bonne personne dans mon réseau ? <span class="accent">Je vous le dis sous 24 h.</span></h2>
-    <p class="sec-lede">
-      Vous ne payez rien si je ne peux pas vous aider. Vous abandonnez votre demande à tout moment en un seul message. Aucun engagement, aucune relance commerciale.
-    </p>
+    <p style="margin-top:28px"><a href="methode.html" class="text-link">En savoir plus</a></p>
   </div>
 </section>
 
@@ -206,7 +356,7 @@
 
       <details>
         <summary>En combien de temps puis-je être mis en relation ?</summary>
-        <p>J'étudie chaque demande sous 24 heures ouvrées. Si j'ai la bonne personne dans mon réseau, je vous la présente sous 48 à 72 heures. Si je n'ai pas, je vous le dis aussi vite, et vous ne payez rien.</p>
+        <p>En 24 heures, j'étudie chaque demande et analyse si j'ai la bonne personne dans mon réseau pour vous la présenter. Si je n'ai pas, je vous le dis aussi vite, et vous ne payez rien.</p>
       </details>
 
       <details>
@@ -226,26 +376,17 @@
 <!-- CTA CENTRAL -->
 <section class="cta">
   <div class="wrap reveal">
-    <h2>Dites-moi votre blocage. <span class="accent">Je connais la bonne personne.</span></h2>
-    <!-- CTA 4 -->
+    <h2>Dites-moi votre besoin, <span class="accent">je vous présente la bonne personne</span></h2>
+    <p class="cta-sub">Si vous avez un blocage précis aujourd'hui, exposez-le. J'étudie chaque demande sous 24 heures, et je vous réponds même si mon réseau ne couvre pas votre besoin.</p>
     <a href="contact.html" class="btn btn-ox">J'expose mon besoin</a>
-    <span class="cta-under">Étude gratuite sous 24 h, aucun engagement</span>
   </div>
 </section>
-
-<!-- PS FINAL -->
-<div class="ps-block">
-  <div class="wrap narrow reveal">
-    <!-- CTA 5 -->
-    <p class="ps-final">P.S. Si vous avez un blocage précis aujourd'hui, exposez-le. J'étudie chaque demande sous 24 heures, et je vous réponds même si mon réseau ne couvre pas votre besoin. <a href="contact.html" class="ps-link">J'expose mon besoin →</a></p>
-  </div>
-</div>
 
 <footer class="foot">
   <div class="wrap foot-grid">
     <div>
       <a href="index.html" class="foot-brand-name">Tony Groison</a>
-      <p class="foot-tagline">Connecteur stratégique, réseau privé de 2 317 relations actives construites depuis 2019.</p>
+      <p class="foot-tagline">Connecteur stratégique, réseau privé de 2 300+ relations actives construites depuis 2019.</p>
     </div>
     <nav aria-label="Navigation secondaire">
       <p class="foot-head">Navigation</p>
@@ -258,18 +399,22 @@
     <div>
       <p class="foot-head">Légal</p>
       <div class="foot-col">
-        <a href="/mentions-legales">Mentions légales</a>
-        <a href="/confidentialite">Politique de confidentialité</a>
-        <a href="/cgv">CGV</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Politique de confidentialité</a>
+        <a href="cgv.html">CGV</a>
       </div>
     </div>
   </div>
   <div class="wrap foot-bottom">
-    <p>© 2025 Tony Groison — Tous droits réservés</p>
+    <p>© <span id="copy-year"></span> Tony Groison. Tous droits réservés.<script>document.getElementById('copy-year').textContent=new Date().getFullYear();</script></p>
+    <a href="https://kaptos.co" target="_blank" rel="noopener noreferrer">Créé par Kaptos.co</a>
     <a href="contact.html">Demander un contact</a>
   </div>
 </footer>
 
 <script src="app.js"></script>
+<script src="form.js"></script>
 </body>
 </html>
+
+
