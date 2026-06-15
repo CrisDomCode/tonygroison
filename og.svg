@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a3f6e"/>
+      <stop offset="100%" stop-color="#0c1d3e"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="100%" stop-color="#e63220"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Bande orange gauche -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#pill)"/>
+
+  <!-- Label -->
+  <text x="80" y="218" font-family="system-ui,-apple-system,Arial,sans-serif" font-weight="700" font-size="15" fill="rgba(255,255,255,.45)" letter-spacing="4">DEAL MAKER · RÉSEAU PRIVÉ</text>
+
+  <!-- Nom -->
+  <text x="80" y="318" font-family="system-ui,-apple-system,Arial,sans-serif" font-weight="700" font-size="86" fill="#ffffff" letter-spacing="-2">Tony Groison</text>
+
+  <!-- Trait accent -->
+  <rect x="80" y="342" width="72" height="5" fill="url(#pill)" rx="3"/>
+
+  <!-- Accroche -->
+  <text x="80" y="412" font-family="system-ui,-apple-system,Arial,sans-serif" font-weight="400" font-size="30" fill="rgba(255,255,255,.72)">Un blocage précis ? Je connais la bonne personne.</text>
+
+  <!-- Domaine -->
+  <text x="80" y="536" font-family="system-ui,-apple-system,Arial,sans-serif" font-weight="400" font-size="19" fill="rgba(255,255,255,.35)">tonygroison.com</text>
+
+  <!-- Pill CTA -->
+  <rect x="852" y="500" width="268" height="58" rx="29" fill="url(#pill)"/>
+  <text x="986" y="537" font-family="system-ui,-apple-system,Arial,sans-serif" font-weight="700" font-size="18" fill="#ffffff" text-anchor="middle">Étude gratuite sous 24 h</text>
+</svg>
