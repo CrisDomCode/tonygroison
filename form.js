@@ -78,9 +78,23 @@
   var submitBtn = document.getElementById('hif-submit');
 
   nextBtn.addEventListener('click', function () {
+      var hifWrap = document.querySelector('.hif-wrap');
+    if (!besoinInput.value.trim()) {
+      hifWrap.classList.add('v-error');
+      document.getElementById('hif-besoin-err').hidden = false;
+      besoinInput.focus();
+      return;
+    }
     s1.hidden = true;
     s2.hidden = false;
     nameInput.focus();
+  });
+
+  besoinInput.addEventListener('input', function () {
+    if (besoinInput.value.trim()) {
+      document.querySelector('.hif-wrap').classList.remove('v-error');
+      document.getElementById('hif-besoin-err').hidden = true;
+    }
   });
 
   /* Nom : capitalisation immédiate + logique particules au blur */
