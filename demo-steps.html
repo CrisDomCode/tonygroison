@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo — 3 steps</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .demo-section { padding: 88px 0; border-bottom: 2px solid var(--rule); }
+  .demo-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ox); font-weight: 700; margin-bottom: 10px; }
+
+  /* ─────────────────────────────────────────
+     V3 ORIGINAL — ghost number en coin
+  ───────────────────────────────────────── */
+  .cards-steps {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 2px; margin-top: 56px; background: var(--rule); border: 1px solid var(--rule);
+  }
+  .step-card { background: #fff; padding: 36px 28px; position: relative; overflow: hidden; }
+  .step-card-num {
+    font-family: var(--body); font-size: 80px; font-weight: 900;
+    color: var(--paper-2); line-height: 1; letter-spacing: -.04em;
+    position: absolute; bottom: 12px; right: 16px;
+  }
+  .step-card h3 { font-family: var(--body); font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--ink); position: relative; }
+  .step-card p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; position: relative; max-width: 28ch; }
+
+  /* ─────────────────────────────────────────
+     V3b — CARTES ACCENT TOP + BADGE ROND
+  ───────────────────────────────────────── */
+  .cards-b { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 56px; }
+  .card-b {
+    border: 1px solid var(--rule); border-top: 3px solid var(--ox);
+    padding: 32px 28px; background: #fff;
+  }
+  .card-b-badge {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--ox); color: #fff;
+    font-family: var(--body); font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .card-b h3 { font-family: var(--body); font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .card-b p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* ─────────────────────────────────────────
+     V4 ORIGINAL — petit cercle outline
+  ───────────────────────────────────────── */
+  .timeline-v { margin-top: 48px; }
+  .tlv-step {
+    display: grid; grid-template-columns: 48px 1fr;
+    gap: 28px; align-items: flex-start;
+    padding-bottom: 0; margin-bottom: 36px; position: relative;
+  }
+  .tlv-step:last-child { margin-bottom: 0; }
+  .tlv-step::before {
+    content: ""; position: absolute;
+    left: 23px; top: 48px; height: 36px;
+    width: 1px; background: var(--rule);
+  }
+  .tlv-step:last-child::before { display: none; }
+  .tlv-dot {
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 1.5px solid var(--rule); background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--body); font-weight: 700; font-size: 15px; color: var(--ox);
+    flex-shrink: 0;
+  }
+  .tlv-body { padding-top: 10px; }
+  .tlv-body h3 { font-family: var(--body); font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+  .tlv-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* ─────────────────────────────────────────
+     V4b — GRANDS RONDS ORANGE PLEINS
+  ───────────────────────────────────────── */
+  .timeline-vb { margin-top: 48px; }
+  .tlvb-step {
+    display: grid; grid-template-columns: 72px 1fr;
+    gap: 36px; align-items: flex-start;
+    margin-bottom: 12px; position: relative;
+    padding-bottom: 32px;
+  }
+  .tlvb-step:last-child { padding-bottom: 0; }
+  .tlvb-step::before {
+    content: ""; position: absolute;
+    left: 35px; top: 72px; bottom: 0;
+    width: 2px; background: rgba(242,100,0,.15);
+  }
+  .tlvb-step:last-child::before { display: none; }
+  .tlvb-dot {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: var(--ox);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--body); font-weight: 800; font-size: 26px; color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px -8px rgba(242,100,0,.45);
+  }
+  .tlvb-body { padding-top: 18px; }
+  .tlvb-body h3 { font-family: var(--body); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .tlvb-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* ─────────────────────────────────────────
+     V4c — GRANDS RONDS OUTLINE ÉPAIS
+  ───────────────────────────────────────── */
+  .timeline-vc { margin-top: 48px; }
+  .tlvc-step {
+    display: grid; grid-template-columns: 72px 1fr;
+    gap: 36px; align-items: flex-start;
+    padding-bottom: 32px; position: relative;
+  }
+  .tlvc-step:last-child { padding-bottom: 0; }
+  .tlvc-step::before {
+    content: ""; position: absolute;
+    left: 35px; top: 70px; bottom: 0;
+    width: 2px; background: var(--rule);
+  }
+  .tlvc-step:last-child::before { display: none; }
+  .tlvc-dot {
+    width: 70px; height: 70px; border-radius: 50%;
+    border: 2.5px solid var(--ox); background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--body); font-weight: 800; font-size: 26px; color: var(--ox);
+    flex-shrink: 0;
+  }
+  .tlvc-body { padding-top: 18px; }
+  .tlvc-body h3 { font-family: var(--body); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .tlvc-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<!-- ════ V3 original ════ -->
+<div class="demo-section block soft">
+  <div class="wrap">
+    <p class="demo-label">V3 — Cartes, numéro fantôme</p>
+    <h2>Vous avez un blocage&nbsp;? <span class="accent">Je connais la personne qui le règle</span></h2>
+    <div class="cards-steps">
+      <div class="step-card">
+        <span class="step-card-num">1</span>
+        <h3>Vous exposez le besoin</h3>
+        <p>Vous me décrivez le blocage et je qualifie précisément ce qu'il vous faut.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-card-num">2</span>
+        <h3>J'ouvre mon carnet</h3>
+        <p>Je sélectionne dans mon réseau la personne idéale pour votre cas, ou plusieurs si vous le souhaitez.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-card-num">3</span>
+        <h3>Je fais le lien</h3>
+        <p>Je vous présente, je facilite la mise en route, puis vous travaillez en direct avec votre expert.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ V3b — accent top + badge ════ -->
+<div class="demo-section block">
+  <div class="wrap">
+    <p class="demo-label">V3b — Cartes, barre top + badge rond</p>
+    <h2>Vous avez un blocage&nbsp;? <span class="accent">Je connais la personne qui le règle</span></h2>
+    <div class="cards-b">
+      <div class="card-b">
+        <div class="card-b-badge">1</div>
+        <h3>Vous exposez le besoin</h3>
+        <p>Vous me décrivez le blocage et je qualifie précisément ce qu'il vous faut.</p>
+      </div>
+      <div class="card-b">
+        <div class="card-b-badge">2</div>
+        <h3>J'ouvre mon carnet</h3>
+        <p>Je sélectionne dans mon réseau la personne idéale pour votre cas, ou plusieurs si vous le souhaitez.</p>
+      </div>
+      <div class="card-b">
+        <div class="card-b-badge">3</div>
+        <h3>Je fais le lien</h3>
+        <p>Je vous présente, je facilite la mise en route, puis vous travaillez en direct avec votre expert.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ V4 original ════ -->
+<div class="demo-section block soft">
+  <div class="wrap narrow">
+    <p class="demo-label">V4 — Timeline, petit cercle outline</p>
+    <h2>Vous avez un blocage&nbsp;? <span class="accent">Je connais la personne qui le règle</span></h2>
+    <div class="timeline-v">
+      <div class="tlv-step">
+        <div class="tlv-dot">1</div>
+        <div class="tlv-body"><h3>Vous exposez le besoin</h3><p>Vous me décrivez le blocage et je qualifie précisément ce qu'il vous faut.</p></div>
+      </div>
+      <div class="tlv-step">
+        <div class="tlv-dot">2</div>
+        <div class="tlv-body"><h3>J'ouvre mon carnet</h3><p>Je sélectionne dans mon réseau la personne idéale pour votre cas, ou plusieurs si vous le souhaitez.</p></div>
+      </div>
+      <div class="tlv-step">
+        <div class="tlv-dot">3</div>
+        <div class="tlv-body"><h3>Je fais le lien</h3><p>Je vous présente, je facilite la mise en route, puis vous travaillez en direct avec votre expert.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ V4b — grands ronds orange ════ -->
+<div class="demo-section block">
+  <div class="wrap narrow">
+    <p class="demo-label">V4b — Grands ronds orange, numéro blanc</p>
+    <h2>Vous avez un blocage&nbsp;? <span class="accent">Je connais la personne qui le règle</span></h2>
+    <div class="timeline-vb">
+      <div class="tlvb-step">
+        <div class="tlvb-dot">1</div>
+        <div class="tlvb-body"><h3>Vous exposez le besoin</h3><p>Vous me décrivez le blocage et je qualifie précisément ce qu'il vous faut.</p></div>
+      </div>
+      <div class="tlvb-step">
+        <div class="tlvb-dot">2</div>
+        <div class="tlvb-body"><h3>J'ouvre mon carnet</h3><p>Je sélectionne dans mon réseau la personne idéale pour votre cas, ou plusieurs si vous le souhaitez.</p></div>
+      </div>
+      <div class="tlvb-step">
+        <div class="tlvb-dot">3</div>
+        <div class="tlvb-body"><h3>Je fais le lien</h3><p>Je vous présente, je facilite la mise en route, puis vous travaillez en direct avec votre expert.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ V4c — grands ronds outline épais ════ -->
+<div class="demo-section block soft">
+  <div class="wrap narrow">
+    <p class="demo-label">V4c — Grands ronds outline épais</p>
+    <h2>Vous avez un blocage&nbsp;? <span class="accent">Je connais la personne qui le règle</span></h2>
+    <div class="timeline-vc">
+      <div class="tlvc-step">
+        <div class="tlvc-dot">1</div>
+        <div class="tlvc-body"><h3>Vous exposez le besoin</h3><p>Vous me décrivez le blocage et je qualifie précisément ce qu'il vous faut.</p></div>
+      </div>
+      <div class="tlvc-step">
+        <div class="tlvc-dot">2</div>
+        <div class="tlvc-body"><h3>J'ouvre mon carnet</h3><p>Je sélectionne dans mon réseau la personne idéale pour votre cas, ou plusieurs si vous le souhaitez.</p></div>
+      </div>
+      <div class="tlvc-step">
+        <div class="tlvc-dot">3</div>
+        <div class="tlvc-body"><h3>Je fais le lien</h3><p>Je vous présente, je facilite la mise en route, puis vous travaillez en direct avec votre expert.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
