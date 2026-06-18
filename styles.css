@@ -625,8 +625,8 @@ a:focus-visible, .btn:focus-visible, .btn-cta:focus-visible { outline-offset: 4p
   .stagger > * { opacity: 1; transform: none; }
 }
 
-/* ---------- responsive ---------- */
-@media(max-width:820px) {
+/* ---------- responsive nav ---------- */
+@media(max-width:1080px) {
   .nav-toggle { display: flex; }
   .mast-inner { align-items: center; }
   .mast-nav {
@@ -639,6 +639,10 @@ a:focus-visible, .btn:focus-visible, .btn-cta:focus-visible { outline-offset: 4p
   .mast-nav a { padding: 15px 2px; border-bottom: 1px solid rgba(255,255,255,.08); }
   .mast-nav a:last-child { border-bottom: none; }
   .mast-nav a::after { display: none; }
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:820px) {
   .cols2 { grid-template-columns: 1fr; }
   .col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
   .statline { gap: 38px; }
