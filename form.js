@@ -88,6 +88,7 @@
     s1.hidden = true;
     s2.hidden = false;
     nameInput.focus();
+    if (window.umami) umami.track('Formulaire - Étape 2');
   });
 
   besoinInput.addEventListener('input', function () {
@@ -152,7 +153,7 @@
       besoin:   besoinInput.value
     });
 
-    function onSent() { s2.hidden = true; okDiv.hidden = false; }
+    function onSent() { s2.hidden = true; okDiv.hidden = false; if (window.umami) umami.track('Formulaire - Soumis'); }
 
     if (navigator.sendBeacon) {
       navigator.sendBeacon(SCRIPT_URL, payload);
