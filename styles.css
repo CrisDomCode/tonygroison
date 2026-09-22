@@ -386,6 +386,12 @@ section { position: relative; z-index: 2; }
 .block.soft { background: var(--paper-2); padding: 52px 0; }
 .phero + .block:not(.soft) { background: var(--paper); }
 
+/* h1 servant de titre de section sur fond clair */
+h1.sec-title {
+  font-size: clamp(28px,4.4vw,50px); line-height: 1.22; max-width: 22ch;
+  color: var(--ink);
+}
+
 h2 {
   font-family: var(--body); font-weight: 700;
   font-size: clamp(28px,4.4vw,50px); line-height: 1.22; letter-spacing: -.018em; max-width: 22ch;

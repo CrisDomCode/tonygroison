@@ -1,4 +1,4 @@
-/* Tony Groison — comportements partagés */
+/* Tony Groison, comportements partagés */
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

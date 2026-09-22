@@ -83,6 +83,14 @@
   var fldTel    = document.getElementById('fld-tel');
   var submitBtn = document.getElementById('hif-submit');
 
+  /* Le hint sert de message d'erreur : vide et mal rempli n'ont pas le même texte */
+  function setHint(fld, input, emptyMsg, invalidMsg) {
+    var hint = fld.querySelector('.fld-hint');
+    if (hint) hint.textContent = input.value.trim() ? invalidMsg : emptyMsg;
+  }
+  function hintEmail() { setHint(fldEmail, emailInput, 'Entrez votre adresse email', 'Adresse email invalide'); }
+  function hintTel()   { setHint(fldTel, telInput, 'Entrez votre numéro de téléphone', 'Format non reconnu'); }
+
   nextBtn.addEventListener('click', function () {
       var hifWrap = document.querySelector('.hif-wrap');
     if (!besoinInput.value.trim()) {
@@ -131,6 +139,7 @@
     emailInput.value = emailInput.value.trim();
     if (emailInput.value) {
       var okMail = isEmailValid(emailInput.value);
+      hintEmail();
       fldEmail.classList.toggle('v-valid', okMail);
       fldEmail.classList.toggle('v-error', !okMail);
     }
@@ -148,6 +157,7 @@
   telInput.addEventListener('blur', function () {
     if (telInput.value.trim()) {
       var valid = isPhoneValid(telInput.value);
+      hintTel();
       fldTel.classList.toggle('v-valid', valid);
       fldTel.classList.toggle('v-error', !valid);
     }
@@ -160,9 +170,20 @@
     var emailOk = isEmailValid(emailInput.value);
     var telOk   = isPhoneValid(telInput.value);
 
-    if (!nameOk)  { fldName.classList.add('v-error');  fldName.classList.remove('v-valid');  nameInput.focus();  return; }
-    if (!emailOk) { fldEmail.classList.add('v-error'); fldEmail.classList.remove('v-valid'); emailInput.focus(); return; }
-    if (!telOk)  { fldTel.classList.add('v-error');  fldTel.classList.remove('v-valid');  telInput.focus();  return; }
+    function mark(fld, ok) {
+      fld.classList.toggle('v-error', !ok);
+      fld.classList.toggle('v-valid', ok);
+    }
+    hintEmail();
+    hintTel();
+    mark(fldName, nameOk);
+    mark(fldEmail, emailOk);
+    mark(fldTel, telOk);
+
+    if (!nameOk || !emailOk || !telOk) {
+      (!nameOk ? nameInput : !emailOk ? emailInput : telInput).focus();
+      return;
+    }
 
     submitBtn.textContent = 'Envoi en cours…';
     submitBtn.disabled = true;
