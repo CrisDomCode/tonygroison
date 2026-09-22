@@ -61,6 +61,10 @@
     return digits.length >= 7 && digits.length <= 15;
   }
 
+  function isEmailValid(val) {
+    return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(val.trim());
+  }
+
   function isNameValid(val) {
     var parts = val.trim().split(/\s+/);
     return parts.length >= 2 && parts[0].length >= 1 && parts[parts.length - 1].length >= 1;
@@ -72,8 +76,10 @@
   var nextBtn   = document.getElementById('hif-next');
   var besoinInput = document.getElementById('hif-besoin');
   var nameInput = document.getElementById('hif-name');
+  var emailInput = document.getElementById('hif-email');
   var telInput  = document.getElementById('hif-tel');
   var fldName   = document.getElementById('fld-name');
+  var fldEmail  = document.getElementById('fld-email');
   var fldTel    = document.getElementById('fld-tel');
   var submitBtn = document.getElementById('hif-submit');
 
@@ -117,6 +123,19 @@
     fldName.classList.toggle('v-error', !valid && nameInput.value.trim().length > 0);
   });
 
+  /* Email : validation au blur */
+  emailInput.addEventListener('input', function () {
+    fldEmail.classList.remove('v-error', 'v-valid');
+  });
+  emailInput.addEventListener('blur', function () {
+    emailInput.value = emailInput.value.trim();
+    if (emailInput.value) {
+      var okMail = isEmailValid(emailInput.value);
+      fldEmail.classList.toggle('v-valid', okMail);
+      fldEmail.classList.toggle('v-error', !okMail);
+    }
+  });
+
   /* Téléphone : formatage en direct */
   telInput.addEventListener('input', function () {
     var raw = telInput.value;
@@ -137,10 +156,12 @@
   /* Soumission */
   document.getElementById('main-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    var nameOk = isNameValid(nameInput.value);
-    var telOk  = isPhoneValid(telInput.value);
+    var nameOk  = isNameValid(nameInput.value);
+    var emailOk = isEmailValid(emailInput.value);
+    var telOk   = isPhoneValid(telInput.value);
 
-    if (!nameOk) { fldName.classList.add('v-error'); fldName.classList.remove('v-valid'); nameInput.focus(); return; }
+    if (!nameOk)  { fldName.classList.add('v-error');  fldName.classList.remove('v-valid');  nameInput.focus();  return; }
+    if (!emailOk) { fldEmail.classList.add('v-error'); fldEmail.classList.remove('v-valid'); emailInput.focus(); return; }
     if (!telOk)  { fldTel.classList.add('v-error');  fldTel.classList.remove('v-valid');  telInput.focus();  return; }
 
     submitBtn.textContent = 'Envoi en cours…';
@@ -148,7 +169,8 @@
 
     var payload = new URLSearchParams({
       fullname: nameInput.value,
-      company:  document.getElementById('hif-company').value,
+      email:    emailInput.value,
+      company:  emailInput.value,
       tel:      telInput.value,
       besoin:   besoinInput.value
     });

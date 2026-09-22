@@ -254,6 +254,7 @@ h1 .accent { color: var(--ox); }
 #hif-s2 .fld.v-valid .fld-hint { color: rgba(255,255,255,.75); }
 /* Les hints sont des messages d'erreur, ne pas les afficher quand valide */
 #hif-s2 #fld-name.v-valid .fld-hint,
+#hif-s2 #fld-email.v-valid .fld-hint,
 #hif-s2 #fld-tel.v-valid .fld-hint { display: none; }
 .hif-wrap.v-error { box-shadow: 0 0 0 2px #ff6b35; }
 .hif-besoin-err { color: #ff8a70; font-size: 18px; margin-top: 10px; margin-bottom: 0; }
